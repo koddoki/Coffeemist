@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkf7psbf7t86a"]
+
+[ext_resource type="Script" path="res://resources/grinder/grinder.gd" id="1_ptxw4"]
+[ext_resource type="Texture2D" uid="uid://bmxpalfupa04x" path="res://resources/grinder/image-removebg-preview.png" id="2_s15vg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yffw"]
+size = Vector2(306, 230)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2enu4"]
+size = Vector2(169, 214)
+
+[node name="grinder" type="Node2D"]
+script = ExtResource("1_ptxw4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -1)
+texture = ExtResource("2_s15vg")
+
+[node name="grinder" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grinder"]
+position = Vector2(2, 102)
+shape = SubResource("RectangleShape2D_7yffw")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="grinder"]
+position = Vector2(0.5, -97)
+shape = SubResource("RectangleShape2D_2enu4")
+
+[connection signal="area_entered" from="grinder" to="." method="_on_grinder_area_entered"]
+[connection signal="area_exited" from="grinder" to="." method="_on_grinder_area_exited"]

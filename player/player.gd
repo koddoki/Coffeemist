@@ -12,7 +12,7 @@ func _physics_process(delta):
 	animation(direction)
 	direction(direction)
 	
-	scale = Vector2.ONE * (position.y / 768) * 1.25
+	scale = Vector2.ONE * (position.y / 700) * 2
 
 
 func animation(direction : Vector2):

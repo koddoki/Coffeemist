@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlwk6kmpl27qv"]
+
+[ext_resource type="Texture2D" uid="uid://dsj4sxdbv288a" path="res://resources/can_of_beans/beans.png" id="2_m8ar7"]
+[ext_resource type="PackedScene" uid="uid://bsy33ony8852m" path="res://resources/draggable/draggable.tscn" id="2_mgric"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_341c2"]
+size = Vector2(85, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yib6v"]
+size = Vector2(85, 130)
+
+[node name="BEAM" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.750003, 0)
+scale = Vector2(0.289735, 0.294702)
+texture = ExtResource("2_m8ar7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_341c2")
+
+[node name="draggable" parent="." instance=ExtResource("2_mgric")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="draggable"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_yib6v")
